@@ -11,7 +11,7 @@ class Program
 
         while (choice <= 4)
         {
-            choice = GetOption(); //Calls the GetOption() function and stores its return value in the choice variable.
+            choice = GetOption(); //Calls the GetOption() function and stores its return value in the choice variable
 
             switch (choice)
             {

@@ -55,7 +55,7 @@ public class Journal
     //         Console.WriteLine("File loaded successfully!");
     //     }
 //     }
-// }
+// }.
 
     public void LoadJournal()
     {
