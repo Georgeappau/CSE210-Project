@@ -56,7 +56,7 @@ public class Activity
 
     public void SetDuration()
     {
-        Console.WriteLine("Enter the duration in seconds: ");
+        Console.WriteLine("Enter the duration in seconds (60 seconds at most): ");
         int duration;
         if (int.TryParse(Console.ReadLine(), out duration))
         {
