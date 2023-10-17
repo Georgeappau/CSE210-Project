@@ -1,0 +1,4 @@
+70
+SimpleGoal:;simple;Simple desc;20;False;0
+EternalGoal:;Eternal;Eternal desc;30;False;0
+ChecklistGoal:;List;list desc;10;50/2;2;True;70
