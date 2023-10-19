@@ -1,12 +1,8 @@
 public class SimpleGoal : Goal
 {
-    public SimpleGoal()
-    {
-    }
-    public SimpleGoal(string _goalName, string _goalDescription, int _goalPoints, bool _isCompleted, int _completedPoints) : base(_goalName, _goalDescription, _goalPoints, _isCompleted, _completedPoints)
-    {
-
-    }
+    //Default contructor
+    public SimpleGoal(){}
+    public SimpleGoal(string _goalName, string _goalDescription, int _goalPoints, bool _isCompleted, int _completedPoints) : base(_goalName, _goalDescription, _goalPoints, _isCompleted, _completedPoints){}
 
     public override void CreateGoal()
     {
@@ -23,7 +19,7 @@ public class SimpleGoal : Goal
         SetCompletedPoints(GetPoints());
 
     }
-
+    //Show completed goals
     public override string PrintIsComplete()
     {
         if (GetCompleted())

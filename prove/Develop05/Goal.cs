@@ -6,6 +6,7 @@ public abstract class Goal
     private bool _isCompleted = false;
     private int _completedPoints;
 
+    //Default constructor
     public Goal(){}
     public Goal(string goalName, string goalDescription, int goalPoints, bool isCompleted, int completedPoints)
     {
@@ -72,14 +73,7 @@ public abstract class Goal
         return _completedPoints;
     }
 
-
-
-
-
-
-
     public abstract void CreateGoal();
-
     public abstract void RecordEvent();
     public abstract string PrintIsComplete();
 

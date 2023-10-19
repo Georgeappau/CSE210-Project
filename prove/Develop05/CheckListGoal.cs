@@ -33,9 +33,9 @@ public class ChecklistGoal : Goal
     {
         return _bonusPoints;
     }
-    public ChecklistGoal()
-    {
-    }
+
+    // Default costructor
+    public ChecklistGoal(){}
     public override void CreateGoal()
     {
         Console.WriteLine("What is your checklist goal? ");
@@ -61,7 +61,7 @@ public class ChecklistGoal : Goal
         }
 
     }
-
+    //Show completed goals
     public override string PrintIsComplete()
     {
         if (GetCompleted())

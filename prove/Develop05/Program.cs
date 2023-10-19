@@ -11,6 +11,7 @@ class Program
         List<Goal> goals = new List<Goal>();
         Utility controler = new Utility();
 
+        // Clear the console and display user points
         Console.Clear();
         Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
 

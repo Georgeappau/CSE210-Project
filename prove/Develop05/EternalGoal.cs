@@ -1,12 +1,8 @@
 public class EternalGoal : Goal
-{
-    public EternalGoal()
-    {
-    }
-    public EternalGoal(string _goalName, string _goalDescription, int _goalPoints, bool _isCompleted, int _completedPoints) : base(_goalName, _goalDescription, _goalPoints, _isCompleted, _completedPoints)
-    {
-
-    }
+{   
+    //Default constructor
+    public EternalGoal(){}
+    public EternalGoal(string _goalName, string _goalDescription, int _goalPoints, bool _isCompleted, int _completedPoints) : base(_goalName, _goalDescription, _goalPoints, _isCompleted, _completedPoints){}
     public override void CreateGoal()
     {
         Console.WriteLine("What is your eternal goal? ");

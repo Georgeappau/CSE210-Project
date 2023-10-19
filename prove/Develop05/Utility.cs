@@ -1,5 +1,6 @@
 public class Utility
 {
+    //Save user file
     public void SaveGoalFile(List<Goal> goals)
     {
         Console.WriteLine("Please enter file name ending with .txt: ");
@@ -24,6 +25,7 @@ public class Utility
                 }
             }
         } else {
+            //Add .txt extension if not included in name
             string newFileName = _fileName + ".txt";
             using (StreamWriter outputFile = new StreamWriter(newFileName))
             {
@@ -45,6 +47,7 @@ public class Utility
         }
     }
 
+    //Load a saved file
     public void LoadGoalsFile(List<Goal> goals)
     {
         Console.WriteLine("Please enter the name of the file to load?");
@@ -93,7 +96,7 @@ public class Utility
 
 
 
-
+    //Calculate user points
     public int CalculateTotalPoints(List<Goal> goals)
     {
         int totalPoints = 0;
