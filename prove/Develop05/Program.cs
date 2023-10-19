@@ -11,6 +11,9 @@ class Program
         List<Goal> goals = new List<Goal>();
         Utility controler = new Utility();
 
+        Console.Clear();
+        Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
+
         while (choice <= 5)
         {
             choice = mainmenu.GetOption(); //Calls the GetOption() function and stores its return value in the choice variable
@@ -56,13 +59,14 @@ class Program
                 // Display goals
                 case 2:
                     Console.Clear();
+                    Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
 
                     foreach (Goal goal in goals)
                     {
                         if (goal is ChecklistGoal)
                         {
                             ChecklistGoal checklistGoal = (ChecklistGoal)goal;
-                            Console.WriteLine($"{checklistGoal.PrintIsComplete()} {checklistGoal.GetGoalName()} ({checklistGoal.GetDescription()}) --- Currently completed: {checklistGoal.GetProgress()}/{checklistGoal.GetDesiredCompletions()} times");
+                            Console.WriteLine($"{checklistGoal.PrintIsComplete()} {checklistGoal.GetGoalName()} ({checklistGoal.GetDescription()}) --- Currently completed: {checklistGoal.GetNumCompleted()}/{checklistGoal.GetCompleteTimes()} times");
                         }
                         else
                         {
@@ -73,15 +77,20 @@ class Program
                     break;
                 // Save goal
                 case 3:
-                    controler.WriteFile(goals);
+                    Console.Clear();
+                    Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
+                    controler.SaveGoalFile(goals);
                     break;
                 // Load goal
                 case 4:
-                    controler.LoadFile(goals);
+                    Console.Clear();
+                    Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
+                    controler.LoadGoalsFile(goals);
                     break;
                 // Record eventl
                 case 5:
                     Console.Clear();
+                    Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
                     Console.WriteLine("The goals are:");
                     int index = 1;
                     foreach (Goal goal in goals)
@@ -106,9 +115,10 @@ class Program
                 default:
                     Console.WriteLine("Program quit successfully. Thank you!.");
                     break;
-                    // Console.WriteLine($"Invalid option");
-                    //break;
             }
         }
     }
 }
+
+//As part of the stretch challenge, my program stores txt files whether or not the user uses the extention ".txt", 
+//it also checks for invalid input and prompts the user.

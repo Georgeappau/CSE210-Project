@@ -3,24 +3,24 @@ public class SimpleGoal : Goal
     public SimpleGoal()
     {
     }
-    public SimpleGoal(string _goalName, string _goalDescription, int _goalValueInPoints, bool _completed, int _earnedPoints) : base(_goalName, _goalDescription, _goalValueInPoints, _completed, _earnedPoints)
+    public SimpleGoal(string _goalName, string _goalDescription, int _goalPoints, bool _isCompleted, int _completedPoints) : base(_goalName, _goalDescription, _goalPoints, _isCompleted, _completedPoints)
     {
 
     }
 
     public override void CreateGoal()
     {
-        Console.WriteLine("What is the name of your goal? ");
+        Console.WriteLine("What is your simple goal? ");
         SetGoalName(Console.ReadLine());
-        Console.WriteLine("What is the description of this goal?");
+        Console.WriteLine("Please add a description to this goal: ");
         SetDescription(Console.ReadLine());
-        Console.WriteLine("How many points do you want to set for this goal? ");
-        SetDesiredPoints(Convert.ToInt32(Console.ReadLine()));
+        Console.WriteLine("Please set points for this goal: ");
+        SetPoints(Convert.ToInt32(Console.ReadLine()));
     }
     public override void RecordEvent()
     {
         SetCompleted(true);
-        SetEarnedPoints(GetDesiredPoints());
+        SetCompletedPoints(GetPoints());
 
     }
 

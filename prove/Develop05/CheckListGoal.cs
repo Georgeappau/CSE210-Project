@@ -1,63 +1,63 @@
 public class ChecklistGoal : Goal
 {
-    private int _desiredCompletions;
-    private int _desiredBonusPoints;
-    private int _progress;
-    public ChecklistGoal(string _goalName, string _goalDescription, int progress, int desiredCompletions, int desiredBonus, bool _completed, int _goalValueInPoints, int _earnedPoints) : base(_goalName, _goalDescription, _goalValueInPoints, _completed, _earnedPoints)
+    private int _completeTimes;
+    private int _bonusPoints;
+    private int _numCompleted;
+    public ChecklistGoal(string _goalName, string _goalDescription, int numCompleted, int completeTimes, int bonusPoints, bool _isCompleted, int _goalPoints, int _completedPoints) : base(_goalName, _goalDescription, _goalPoints, _isCompleted, _completedPoints)
     {
-        _desiredCompletions = desiredCompletions;
-        _desiredBonusPoints = desiredBonus;
-        _progress = progress;
+        _completeTimes = completeTimes;
+        _bonusPoints = bonusPoints;
+        _numCompleted = numCompleted;
     }
-    public void SetProgress()
+    public void SetNumCompleted()
     {
-        _progress++;
+        _numCompleted++;
     }
-    public int GetProgress()
+    public int GetNumCompleted()
     {
-        return _progress;
+        return _numCompleted;
     }
-    public void SetDesiredCompletions(int desired)
+    public void SetCompleteTimes(int num)
     {
-        _desiredCompletions = desired;
+        _completeTimes = num;
     }
-    public int GetDesiredCompletions()
+    public int GetCompleteTimes()
     {
-        return _desiredCompletions;
+        return _completeTimes;
     }
-    public void SetBonus(int desired)
+    public void SetBonus(int num)
     {
-        _desiredBonusPoints = desired;
+        _bonusPoints = num;
     }
     public int GetBonus()
     {
-        return _desiredBonusPoints;
+        return _bonusPoints;
     }
     public ChecklistGoal()
     {
     }
     public override void CreateGoal()
     {
-        Console.WriteLine("What is the name of your goal? ");
+        Console.WriteLine("What is your checklist goal? ");
         SetGoalName(Console.ReadLine());
-        Console.WriteLine("What is the description of this goal?");
+        Console.WriteLine("Please add a description to your goal: ");
         SetDescription(Console.ReadLine());
-        Console.WriteLine("How many points do you want to set for this goal? ");
-        SetDesiredPoints(Convert.ToInt32(Console.ReadLine()));
-        Console.WriteLine("How many times does this goal need to be accomplished for a bonus? ");
-        SetDesiredCompletions(Convert.ToInt32(Console.ReadLine()));
-        Console.WriteLine("What is the bonus for completing it many times?");
+        Console.WriteLine("Please set points for your goal: ");
+        SetPoints(Convert.ToInt32(Console.ReadLine()));
+        Console.WriteLine("Please add number of times this goal must be completed to earn bonus: ");
+        SetCompleteTimes(Convert.ToInt32(Console.ReadLine()));
+        Console.WriteLine("Please set the bomus points: ");
         SetBonus(Convert.ToInt32(Console.ReadLine()));
     }
     public override void RecordEvent()
     {
-        SetProgress();
-        SetEarnedPoints(GetDesiredPoints());
+        SetNumCompleted();
+        SetCompletedPoints(GetPoints());
 
-        if (GetProgress() == GetDesiredCompletions())
+        if (GetNumCompleted() == GetCompleteTimes())
         {
             SetCompleted(true);
-            SetEarnedPoints(GetBonus());
+            SetCompletedPoints(GetBonus());
         }
 
     }

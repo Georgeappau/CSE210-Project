@@ -42,11 +42,11 @@ public abstract class Goal
         _goalDescription = description;
     }
 
-    public int GetDesiredPoints()
+    public int GetPoints()
     {
         return _goalPoints;
     }
-    public void SetDesiredPoints(int _points)
+    public void SetPoints(int _points)
     {
         _goalPoints = _points;
     }
@@ -63,7 +63,7 @@ public abstract class Goal
 
 
 
-    public void SetEarnedPoints(int points)
+    public void SetCompletedPoints(int points)
     {
         _completedPoints = _completedPoints + points;
     }
