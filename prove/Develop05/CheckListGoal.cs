@@ -9,26 +9,32 @@ public class ChecklistGoal : Goal
         _bonusPoints = bonusPoints;
         _numCompleted = numCompleted;
     }
+
     public void SetNumCompleted()
     {
         _numCompleted++;
     }
+
     public int GetNumCompleted()
     {
         return _numCompleted;
     }
+
     public void SetCompleteTimes(int num)
     {
         _completeTimes = num;
     }
+
     public int GetCompleteTimes()
     {
         return _completeTimes;
     }
+
     public void SetBonus(int num)
     {
         _bonusPoints = num;
     }
+
     public int GetBonus()
     {
         return _bonusPoints;
@@ -49,6 +55,7 @@ public class ChecklistGoal : Goal
         Console.WriteLine("Please set the bomus points: ");
         SetBonus(Convert.ToInt32(Console.ReadLine()));
     }
+
     public override void RecordEvent()
     {
         SetNumCompleted();
@@ -59,8 +66,8 @@ public class ChecklistGoal : Goal
             SetCompleted(true);
             SetCompletedPoints(GetBonus());
         }
-
     }
+    
     //Show completed goals
     public override string PrintIsComplete()
     {
@@ -73,5 +80,4 @@ public class ChecklistGoal : Goal
             return "[ ]";
         }
     }
-
 }

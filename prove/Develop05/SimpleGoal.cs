@@ -13,12 +13,14 @@ public class SimpleGoal : Goal
         Console.WriteLine("Please set points for this goal: ");
         SetPoints(Convert.ToInt32(Console.ReadLine()));
     }
+
     public override void RecordEvent()
     {
         SetCompleted(true);
         SetCompletedPoints(GetPoints());
 
     }
+    
     //Show completed goals
     public override string PrintIsComplete()
     {

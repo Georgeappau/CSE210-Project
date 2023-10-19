@@ -16,7 +16,6 @@ public class EternalGoal : Goal
     {
         SetCompleted(true);
         SetCompletedPoints(GetPoints());
-
     }
 
     public override string PrintIsComplete()
@@ -30,5 +29,4 @@ public class EternalGoal : Goal
             return "[ ]";
         }
     }
-
 }

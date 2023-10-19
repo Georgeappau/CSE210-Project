@@ -37,6 +37,7 @@ class Program
                                 simpleGoal.CreateGoal();
                                 goals.Add(simpleGoal);
                                 break;
+
                             // Eternal goal
                             case 2:
                                 Console.Clear();
@@ -44,6 +45,7 @@ class Program
                                 eternalGoal.CreateGoal();
                                 goals.Add(eternalGoal);
                                 break;
+
                             // Checklist goal
                             case 3:
                                 Console.Clear();
@@ -51,12 +53,14 @@ class Program
                                 checklistGoal.CreateGoal();
                                 goals.Add(checklistGoal);
                                 break;
+
                             default:
                                 Console.WriteLine($"Invalid option");
                                 break;
                         }
                     }
                     break;
+                    
                 // Display goals
                 case 2:
                     Console.Clear();
@@ -69,6 +73,7 @@ class Program
                             ChecklistGoal checklistGoal = (ChecklistGoal)goal;
                             Console.WriteLine($"{checklistGoal.PrintIsComplete()} {checklistGoal.GetGoalName()} ({checklistGoal.GetDescription()}) --- Currently completed: {checklistGoal.GetNumCompleted()}/{checklistGoal.GetCompleteTimes()} times");
                         }
+
                         else
                         {
                             Console.WriteLine($"{goal.PrintIsComplete()} {goal.GetGoalName()} ({goal.GetDescription()})");
@@ -76,24 +81,28 @@ class Program
                         }
                     }
                     break;
+
                 // Save goal
                 case 3:
                     Console.Clear();
                     Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
                     controler.SaveGoalFile(goals);
                     break;
+
                 // Load goal
                 case 4:
                     Console.Clear();
                     Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
                     controler.LoadGoalsFile(goals);
                     break;
+
                 // Record eventl
                 case 5:
                     Console.Clear();
                     Console.WriteLine($"You have {controler.CalculateTotalPoints(goals)} points at the moment.");
                     Console.WriteLine("The goals are:");
                     int index = 1;
+
                     foreach (Goal goal in goals)
                     {
                         Console.WriteLine(index + ". " + goal.GetGoalName());

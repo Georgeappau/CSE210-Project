@@ -15,7 +15,6 @@ public abstract class Goal
         _goalPoints = goalPoints;
         _isCompleted = isCompleted;
         _completedPoints = completedPoints;
-
     }
 
     public Goal(string goalName, string goalDescription, bool isCompleted)
@@ -24,10 +23,12 @@ public abstract class Goal
         _goalDescription = goalDescription;
         _isCompleted = isCompleted;
     }
+    
     public string GetGoalName()
     {
         return _goalName;
     }
+
     public void SetGoalName(string goalName)
     {
         _goalName = goalName;
@@ -38,6 +39,7 @@ public abstract class Goal
     {
         return _goalDescription;
     }
+
     public void SetDescription(string description)
     {
         _goalDescription = description;
@@ -47,6 +49,7 @@ public abstract class Goal
     {
         return _goalPoints;
     }
+
     public void SetPoints(int _points)
     {
         _goalPoints = _points;

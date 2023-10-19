@@ -5,6 +5,7 @@ public class Utility
     {
         Console.WriteLine("Please enter file name ending with .txt: ");
         string _fileName = Console.ReadLine();
+        
         if (_fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
         {
             using (StreamWriter outputFile = new StreamWriter(_fileName))
