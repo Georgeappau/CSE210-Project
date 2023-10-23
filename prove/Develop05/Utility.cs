@@ -51,45 +51,61 @@ public class Utility
     //Load a saved file
     public void LoadGoalsFile(List<Goal> goals)
     {
-        Console.WriteLine("Please enter the name of the file to load?");
-        string filename = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(filename);
-        lines = lines.Skip(1).ToArray();
+        while (true) {
+            Console.WriteLine("Please enter the name of the file to load (ending with .txt): ");
+            string filename = Console.ReadLine();
 
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(";");
-            string name = parts[1];
-            string desc = parts[2];
-            int goalPoints = int.Parse(parts[3]);
-            if (parts[4].Contains("/"))
+            if (!filename.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
             {
-                string bonus = parts[4];
-                string[] checklistParts = bonus.Split("/");
-                bonus = checklistParts[0];
-                int numCompleted = int.Parse(checklistParts[1]);
-                int bonusInt = int.Parse(bonus);
-                int num = int.Parse(checklistParts[1]);
-                bool isComplete = bool.Parse(parts[6]);
-                int completedPoints = int.Parse(parts[7]);
-                goals.Add(new ChecklistGoal(name, desc, numCompleted, num, bonusInt, isComplete, goalPoints, completedPoints));
+                Console.WriteLine("Your file's name must end with .txt. Please try again");
+                continue; // This prompts the user for filename again
+            }
 
+            if (File.Exists(filename)) {
+                string[] lines = File.ReadAllLines(filename);
+                lines = lines.Skip(1).ToArray();
+
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split(";");
+                    string name = parts[1];
+                    string desc = parts[2];
+                    int goalPoints = int.Parse(parts[3]);
+                    if (parts[4].Contains("/"))
+                    {
+                        string bonus = parts[4];
+                        string[] checklistParts = bonus.Split("/");
+                        bonus = checklistParts[0];
+                        int numCompleted = int.Parse(checklistParts[1]);
+                        int bonusInt = int.Parse(bonus);
+                        int num = int.Parse(checklistParts[1]);
+                        bool isComplete = bool.Parse(parts[6]);
+                        int completedPoints = int.Parse(parts[7]);
+                        goals.Add(new ChecklistGoal(name, desc, numCompleted, num, bonusInt, isComplete, goalPoints, completedPoints));
+
+                    }
+                    else
+                    {
+                        int completedPoints = int.Parse(parts[5]);
+                        bool isComplete = bool.Parse(parts[4]);
+                        string goalType = parts[0];
+                        if (goalType == "SimpleGoal:")
+                        {
+                            goals.Add(new SimpleGoal(name, desc, goalPoints, isComplete, completedPoints));
+
+                        }
+                        else
+                        {
+                            goals.Add(new EternalGoal(name, desc, goalPoints, isComplete, completedPoints));
+
+                        }
+                    }
+                }
+                break;
             }
             else
             {
-                int completedPoints = int.Parse(parts[5]);
-                bool isComplete = bool.Parse(parts[4]);
-                string goalType = parts[0];
-                if (goalType == "SimpleGoal:")
-                {
-                    goals.Add(new SimpleGoal(name, desc, goalPoints, isComplete, completedPoints));
-
-                }
-                else
-                {
-                    goals.Add(new EternalGoal(name, desc, goalPoints, isComplete, completedPoints));
-
-                }
+                Console.WriteLine("The file you are trying to open doesn't exist.");
             }
         }
         

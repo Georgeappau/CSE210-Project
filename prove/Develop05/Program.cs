@@ -130,5 +130,8 @@ class Program
     }
 }
 
-//As part of the stretch challenge, my program stores txt files whether or not the user uses the extention ".txt", 
-//it also checks for invalid input and prompts the user.
+// As part of the stretch challenge, my program
+// 1. Stores txt files whether or not the user uses the extention ".txt".
+// 2. If the file name a user want's to load does not end with .txt, it prompts the user to try again.
+// 3. If the file does not exist, it prompts the user to enter the file name again 
+// 4. it also prompts the user when there is an invalid input.

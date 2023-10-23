@@ -14,7 +14,6 @@ public class EternalGoal : Goal
     }
     public override void RecordEvent()
     {
-        SetCompleted(true);
         SetCompletedPoints(GetPoints());
     }
 
